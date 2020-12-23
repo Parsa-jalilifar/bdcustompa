@@ -5,7 +5,6 @@ import image_cosmetic_1 from "../images/Exterior-intro-3-sm.jpg";
 import image_cosmetic_2 from "../images/interior-intro-3.jpg";
 import "../styles/AboutUs.css";
 
-
 class AboutUs extends Component {
   constructor(props) {
     super(props);
@@ -72,7 +71,7 @@ class AboutUs extends Component {
                         <h4 style={titleStyle_2}>
                           Our Commitment to Perfection{" "}
                         </h4>
-                        <ul>
+                        <ul className="about-list-img">
                           <li>
                             <p>
                               Our goal is to use the best in business to
@@ -100,79 +99,85 @@ class AboutUs extends Component {
                     <Tab.Pane eventKey="second">
                       <h4 style={titleStyle}>Automotive Performance</h4>
                       <hr style={hrStyle}></hr>
-                      <img
-                        src={image_performance}
-                        alt="car"
-                        width="100%"
-                        style={{ maxWidth: "600px", maxHeight: "400px" }}
-                        height="auto"
-                      />
-                      <ul>
-                        <li>
-                          <p> Engine Chip Tuning System</p>
-                        </li>
-                        <li>
-                          <p> Modified High Performance Braking System</p>
-                        </li>
-                        <li>
-                          <p> Performance Tires Installation</p>
-                        </li>
-                        <li>
-                          <p> Race Exhaust System Enhancement</p>
-                        </li>
-                      </ul>
+                      <div className="about-img-container">
+                        <img
+                          src={image_performance}
+                          className="about-img"
+                          alt="car"
+                          width="100%"
+                          height="auto"
+                        />
+                        <ul className="about-list-img">
+                          <li>
+                            <p> Engine Chip Tuning System</p>
+                          </li>
+                          <li>
+                            <p> Modified High Performance Braking System</p>
+                          </li>
+                          <li>
+                            <p> Performance Tires Installation</p>
+                          </li>
+                          <li>
+                            <p> Race Exhaust System Enhancement</p>
+                          </li>
+                        </ul>
+                      </div>
                     </Tab.Pane>
 
                     <Tab.Pane eventKey="third">
                       <h4 style={titleStyle}>Exterior Cosmetics</h4>
                       <hr style={hrStyle}></hr>
-                      <img
-                        src={image_cosmetic_1}
-                        alt="car"
-                        width="100%"
-                        style={{ maxWidth: "600px", maxHeight: "400px" }}
-                        height="auto"
-                      />
-                      <ul>
-                        <li>
-                          <p> Professional Vehicle Lowering Kits</p>
-                        </li>
-                        <li>
-                          <p> Custom Exhaust Manifolds</p>
-                        </li>
-                        <li>
-                          <p> Comprehensive Body kit Modifications</p>
-                        </li>
-                        <li>
-                          <p> Customized Paint Jobs</p>
-                        </li>
-                      </ul>
+                      <div className="about-img-container">
+                        <img
+                          src={image_cosmetic_1}
+                          alt="car"
+                          className="about-img"
+                          width="100%"
+                          height="auto"
+                        />
+                        <ul className="about-list-img">
+                          <li>
+                            <p> Professional Vehicle Lowering Kits</p>
+                          </li>
+                          <li>
+                            <p> Custom Exhaust Manifolds</p>
+                          </li>
+                          <li>
+                            <p> Comprehensive Body kit Modifications</p>
+                          </li>
+                          <li>
+                            <p> Customized Paint Jobs</p>
+                          </li>
+                        </ul>
+                      </div>
                     </Tab.Pane>
 
                     <Tab.Pane eventKey="fourth">
                       <h4 style={titleStyle}>Interior Detailing</h4>
                       <hr style={hrStyle}></hr>
-                      <img
-                        src={image_cosmetic_2}
-                        alt="car"
-                        width="100%"
-                        style={{ maxWidth: "600px", maxHeight: "400px" }}
-                        height="auto"
-                      />
-                      <ul>
-                        <li>
-                          <p> Interior Custom Color Wrappings</p>
-                        </li>
-                        <li>
-                          <p> LED Floor, Roof and Door Installations</p>
-                        </li>
-                        <li>
-                          <p> State Of The Art Audio Systems</p>
-                        </li>
-                        <li>
-                          <p>Pedals, Dashboard and Gearstick Customization</p>
-                        </li>
-                      </ul>
+                      <div className="about-img-container">
+                        <img
+                          src={image_cosmetic_2}
+                          alt="car"
+                          width="100%"
+                          className="about-img"
+                          height="auto"
+                        />
+                        <ul className="about-list-img">
+                          <li>
+                            <p> Interior Custom Color Wrappings</p>
+                          </li>
+                          <li>
+                            <p> LED Floor, Roof and Door Installations</p>
+                          </li>
+                          <li>
+                            <p> State Of The Art Audio Systems</p>
+                          </li>
+                          <li>
+                            <p>Pedals, Dashboard and Gearstick Customization</p>
+                          </li>
+                        </ul>
+                      </div>
                     </Tab.Pane>
                   </Tab.Content>
                 </Col>

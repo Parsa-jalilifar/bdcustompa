@@ -84,6 +84,25 @@ a#left-tabs-tab-fourth.nav-link {
   color: #333;
 }
 
+.about-img-container{
+  display: flex;
+}
+
+.about-img {
+  max-width: 400px;
+  max-height: 400px;
+}
+
+.about-list-img {
+  margin-left: 50px;
+}
+
+@media screen and (max-width: 900px) {
+  .about-img-container{
+    display: block;
+  }
+}
+
 @media screen and (max-width: 766px) {
   .aboutUs-title {
     padding-top: 80px;
