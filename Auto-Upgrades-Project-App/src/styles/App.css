@@ -1,0 +1,13 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.App-Background {
+  background: black;
+  color: white;
+  /* display: flex; */
+  min-height: 200vh;
+  align-items: center;
+  justify-content: top;
+}

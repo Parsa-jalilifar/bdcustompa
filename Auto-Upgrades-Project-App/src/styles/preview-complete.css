@@ -1,0 +1,39 @@
+.complete-frame {
+  background-color: #d2d2d2;
+  max-width: 720px;
+  margin: 20px auto;
+}
+
+.complete-frame ul {
+  list-style: none;
+  margin-bottom: 0px;
+}
+
+.complete-frame ul li {
+  color: black;
+  display: inline-block;
+  padding: 5px;
+}
+
+
+#image-caption {
+  display: none;
+  left: 0px;
+  right: 0px;
+
+}
+
+#image-item:hover + #image-caption {
+  display: block;
+}
+
+#inner-caption {
+  background-color: black;
+}
+
+@media (hover: hover) {
+  #image-item:hover + #image-caption {
+    display: block;
+  }
+}
+

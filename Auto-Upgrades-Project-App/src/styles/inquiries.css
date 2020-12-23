@@ -1,0 +1,25 @@
+.inquiries-title {
+  text-align: center;
+  font-family: "Ambit-Bold.ttf";
+  margin-bottom: 10px;
+  font-size: 30px;
+  padding-top: 60px;
+}
+
+.form-container {
+  background-color: #626262;
+  border-radius: 1vh;
+  margin: 5px auto;
+  padding: 20px;
+  border: 3px solid #333;
+}
+
+.outer-form-container {
+  border-radius: 1vh;
+  background-color: #626262;
+  padding: 10px;
+}
+
+#des {
+  color: black;
+}
