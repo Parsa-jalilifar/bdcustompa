@@ -1,18 +1,23 @@
 .carousel-frame {
   background-color: #d2d2d2;
-  max-width: 720px;
+  display: flex;
   margin: 20px auto;
+}
+
+.carousel-div {
+  width: 70%;
 }
 
 .carousel-frame ul {
   list-style: none;
-  margin-bottom: 0px;
+  width: 30%;
+  margin: 20px;
+  overflow: hidden;
 }
 
 .carousel-frame ul li {
   color: black;
-  display: inline-block;
-  padding: 5px;
+  font-size: 1vw;
 }
 
 #image-caption {
@@ -26,7 +31,12 @@
 }
 
 #inner-caption {
-  background-color: black;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.4);
+  -o-backdrop-filter: blur(qpx);
+  -ms-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
 }
 
 @media (hover: hover) {
@@ -44,12 +54,12 @@
 }
 
 .pagination > .active > a {
-  background-color: #47ccde;
-  border-color: #47ccde;
+  background-color: #5e5e5e;
+  border-color: #5e5e5e;
   color: #fff;
 }
 .pagination > li > a {
-  border: 1px solid #47ccde;
+  border: 1px solid #5e5e5e;
   padding: 5px 10px;
   outline: none;
   cursor: pointer;
@@ -60,13 +70,13 @@
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background-color: #47ccde;
-  border-color: #47ccde;
+  background-color: #5e5e5e;
+  border-color: #5e5e5e;
   outline: none;
 }
 .pagination > li > a,
 .pagination > li > span {
-  color: #47ccde;
+  color: #5e5e5e;
 }
 .pagination > li:first-child > a,
 .pagination > li:first-child > span,

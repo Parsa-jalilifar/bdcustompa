@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import AddCurr from "./add_current_project";
 import CarouselMaker from "./carouselMaker";
 import { Container } from "react-bootstrap";
-import * as AiIcons from "react-icons/ai";
+import * as BiIcons from "react-icons/bi";
 import "../styles/more_completed_project.css";
 
 class more_completed_projects extends Component {
@@ -16,13 +16,26 @@ class more_completed_projects extends Component {
   }
 
   render() {
+
+    const hrStyle = {
+      display: "block",
+      marginTop: "5px",
+      marginBottom: "40px",
+      marginLeft: "auto",
+      marginRight: "auto",
+      height: "2px",
+      backgroundColor: "white",
+    };
+
     return (
       <Container>
         <a className="icon-link" href="/">
-          <AiIcons.AiOutlineHome className="home-icon" />
+          <BiIcons.BiArrowBack className="back-icon" />
+          Back To Home Page
         </a>
-        <AddCurr />
-        <h3 style={{ padding: "20px 0px 20px 12px" }}>Current Projects</h3>
+        {/* <AddCurr /> */}
+        <h3 style={{ padding: "20px 0px 5px 12px" }}>Current Projects</h3>
+        <hr style={hrStyle}></hr>
         <CarouselMaker
           url={`https://bdcustompa-api.herokuapp.com/api/current_projects`}
         />

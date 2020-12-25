@@ -47,6 +47,16 @@ class previewCurrent extends Component {
   }
 
   render() {
+    const hrStyle = {
+      display: "block",
+      marginTop: "5px",
+      marginBottom: "40px",
+      marginLeft: "auto",
+      marginRight: "auto",
+      height: "2px",
+      backgroundColor: "white",
+    };
+
     return (
       <div className="container" id="curr-frame" style={{ paddingTop: "40px" }}>
         <h3 style={{ display: "inline-block" }}>Current Projects</h3>
@@ -58,6 +68,7 @@ class previewCurrent extends Component {
             + More
           </Link>
         </h4>
+        <hr style={hrStyle}></hr>
         <ProjectItem cars={this.state.current_projects} />
       </div>
     );
@@ -76,26 +87,45 @@ function ProjectItem(props) {
 function CarouselItems(props) {
   const c = props.car;
   return (
-    <div className="current-frame">
+    <div className="carousel-frame">
       <ul>
-        <li>Make: {c.Make}</li>
-        <li>Model: {c.Model}</li>
-        <li>Year: {c.Year}</li>
-        <li>Body Style: {c.Body_Style}</li>
-        <li>Engine Transmission: {c.Engine_Transmission}</li>
+        <li id="first-label">
+          <span style={{ fontWeight: "bold" }}>Make: </span>
+          <span style={{ fontWeight: "normal" }}>{c.Make}</span>
+        </li>
+        <hr />
+        <li>
+          <span style={{ fontWeight: "bold" }}>Model: </span>
+          <span style={{ fontWeight: "normal" }}> {c.Model}</span>
+        </li>
+        <hr />
+        <li>
+          <span style={{ fontWeight: "bold" }}>Year: </span>
+          <span style={{ fontWeight: "normal" }}> {c.Year}</span>
+        </li>
+        <hr />
+        <li>
+          <span style={{ fontWeight: "bold" }}>Body Style: </span>
+          <span style={{ fontWeight: "normal" }}> {c.Body_Style}</span>
+        </li>
+        <hr />
+        <li>
+          <span style={{ fontWeight: "bold" }}>Engine Transmission: </span>
+          <br />
+          <span style={{ fontWeight: "normal" }}> {c.Engine_Transmission}</span>
+        </li>
       </ul>
-
-      <Carousel interval={null}>
+      <Carousel className="carousel-div" interval={null}>
         {c.Images.map((url) => {
           return (
             <Carousel.Item>
               <img
                 id="image-item"
                 className="d-block w-100"
-                style={{ maxHeight: "380px" }}
                 alt={c.Make}
                 src={`data:image/jpeg;base64,${url}`}
               />
+
               <Carousel.Caption id="image-caption">
                 <p id="inner-caption">{c.Description}</p>
               </Carousel.Caption>

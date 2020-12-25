@@ -104,28 +104,47 @@ function CarouselItems(props) {
   return (
     <div className="carousel-frame">
       <ul>
-        <li>Make: {c.Make}</li>
-        <li>Model: {c.Model}</li>
-        <li>Year: {c.Year}</li>
-        <li>Body Style: {c.Body_Style}</li>
-        <li>Engine Transmission: {c.Engine_Transmission}</li>
+        <li id="first-label">
+          <span style={{ fontWeight: "bold" }}>Make: </span>
+          <span style={{ fontWeight: "normal" }}>{c.Make}</span>
+        </li>
+        <hr />
+        <li>
+          <span style={{ fontWeight: "bold" }}>Model: </span>
+          <span style={{ fontWeight: "normal" }}> {c.Model}</span>
+        </li>
+        <hr />
+        <li>
+          <span style={{ fontWeight: "bold" }}>Year: </span>
+          <span style={{ fontWeight: "normal" }}> {c.Year}</span>
+        </li>
+        <hr />
+        <li>
+          <span style={{ fontWeight: "bold" }}>Body Style: </span>
+          <span style={{ fontWeight: "normal" }}> {c.Body_Style}</span>
+        </li>
+        <hr />
+        <li>
+          <span style={{ fontWeight: "bold" }}>Engine Transmission: </span>
+          <br />
+          <span style={{ fontWeight: "normal" }}> {c.Engine_Transmission}</span>
+        </li>
       </ul>
-      <div className="carousel-buttons">
+      {/* <div className="carousel-buttons">
         <Link className="btn btn-warning" to={`/project/edit/${c._id}`}>
           Edit
         </Link>
         <Link className="btn btn-danger" to={`/project/delete/${c._id}`}>
           Delete
         </Link>
-      </div>
-      <Carousel interval={null}>
+      </div> */}
+      <Carousel className="carousel-div" interval={null}>
         {c.Images.map((url) => {
           return (
             <Carousel.Item>
               <img
                 id="image-item"
                 className="d-block w-100"
-                style={{ maxHeight: "380px" }}
                 alt={c.Make}
                 src={`data:image/jpeg;base64,${url}`}
               />
