@@ -129,15 +129,18 @@ function CarouselItems(props) {
           <br />
           <span style={{ fontWeight: "normal" }}> {c.Engine_Transmission}</span>
         </li>
+
+        {/* <li className="carousel-buttons">
+          <hr />
+          <Link className="btn btn-warning" to={`/project/edit/${c._id}`}>
+            Edit
+          </Link>
+          &nbsp;
+          <Link className="btn btn-danger" to={`/project/delete/${c._id}`}>
+            Delete
+          </Link>
+        </li> */}
       </ul>
-      {/* <div className="carousel-buttons">
-        <Link className="btn btn-warning" to={`/project/edit/${c._id}`}>
-          Edit
-        </Link>
-        <Link className="btn btn-danger" to={`/project/delete/${c._id}`}>
-          Delete
-        </Link>
-      </div> */}
       <Carousel className="carousel-div" interval={null}>
         {c.Images.map((url) => {
           return (
