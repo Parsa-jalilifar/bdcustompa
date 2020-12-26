@@ -7,7 +7,7 @@
   background: black;
   color: white;
   /* display: flex; */
-  min-height: 200vh;
+  min-height: 100vh;
   align-items: center;
   justify-content: top;
 }
