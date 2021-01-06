@@ -1,13 +1,8 @@
-import {
-  Form,
-  FormText,
-  Col,
-  Button,
-  Container,
-  FormGroup,
-} from "react-bootstrap";
+import { Form, FormText, Col, Button, Container, FormGroup, } from "react-bootstrap";
 import React, { Component } from "react";
 import "../styles/add_current_project.css";
+import * as BiIcons from "react-icons/bi";
+import { withRouter} from 'react-router-dom';
 
 class Add_Current_Project extends Component {
   constructor(props) {
@@ -30,7 +25,7 @@ class Add_Current_Project extends Component {
   }
 
   handleSubmit() {
-    const URL = "http://localhost:8080/api/current_projects";
+    const URL = "https://bdcustompa-api.herokuapp.com/api/current_projects";
 
     var formData = new FormData();
     formData.append("Make", this.state.Make);
@@ -48,6 +43,9 @@ class Add_Current_Project extends Component {
     fetch(URL, {
       method: "POST",
       body: formData,
+      headers: { 
+      'Authorization': "Bearer " + localStorage.getItem("Token")
+      }
     })
       .then((response) => {
         if (response.ok) {
@@ -62,6 +60,7 @@ class Add_Current_Project extends Component {
         }
       })
       .then((responseData) => {
+        this.props.history.push(`/admin_current_projects`);
         // "responseData" is an object
         console.log(responseData.message);
       })
@@ -119,6 +118,9 @@ class Add_Current_Project extends Component {
 
     return (
       <Container style={{ paddingTop: "20px" }}>
+        <a className="icon-link" href="/">
+          <BiIcons.BiArrowBack className="back-icon" />
+        </a>
         <header className="title">Add Current Project</header>
         <Container className="outer-form-container">
           <Container className="form-container">
@@ -189,8 +191,8 @@ class Add_Current_Project extends Component {
                 onChange={(e) => this.setState({ Description: e.target.value })}
               >
                 <FormText>
-                  A descriptive explanation of what modifications are going to
-                  made
+                  A descriptive explanation of what modifications are going to be
+                  made.
                 </FormText>
                 <Form.Control as="textarea" rows={5} />
               </Form.Group>
@@ -215,18 +217,6 @@ class Add_Current_Project extends Component {
             </Form>
             <hr style={hrStyle}></hr>
             <Button
-              style={{
-                borderRadius: "24px",
-                marginTop: "25px",
-                marginRight: "40px",
-              }}
-              size="lg"
-              variant="dark"
-              onClick={this.handleSubmit}
-            >
-              Back
-            </Button>
-            <Button
               style={{ borderRadius: "24px", marginTop: "25px" }}
               size="lg"
               variant="dark"
@@ -243,4 +233,4 @@ class Add_Current_Project extends Component {
   }
 }
 
-export default Add_Current_Project;
+export default withRouter(Add_Current_Project);

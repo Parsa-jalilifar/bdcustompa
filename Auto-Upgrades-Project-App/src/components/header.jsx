@@ -18,16 +18,16 @@ class header extends Component {
             <ul>
               <li className="nav-item">
                 <Link to="aboutUs-frame" spy={true} smooth={true} offset={-180}>
-                  About us
+                  About Us
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="com-frame" spy={true} smooth={true} offset={-180}>
+                <Link to="com-frame" spy={true} smooth={true} offset={-195}>
                   Completed Projects
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="curr-frame" spy={true} smooth={true} offset={-180}>
+                <Link to="curr-frame" spy={true} smooth={true} offset={-195}>
                   Current Projects
                 </Link>
               </li>

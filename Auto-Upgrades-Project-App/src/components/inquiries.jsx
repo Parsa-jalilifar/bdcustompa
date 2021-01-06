@@ -1,6 +1,58 @@
-import { Form, FormText, Row, Col, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Modal } from "react-bootstrap";
 import React, { Component } from "react";
+import { withRouter } from 'react-router-dom';
 import "../styles/inquiries.css";
+import { withStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+import MaskedInput from 'react-text-mask';
+import PropTypes from 'prop-types';
+
+const styles = (theme) => ({
+  root: {
+    '& > *': {
+      margin: theme.spacing(4),
+      width: '25ch',
+    },
+    '& label.Mui-focused': {
+      color: 'black',
+    },
+    '&& .MuiInput-root': {
+      color: "white",
+    },
+    '&& .MuiInput-root:hover::before': {
+      borderColor: "black",
+    },
+    '& .MuiInput-underline:after': {
+      borderBottomColor: 'black',
+    },
+    '& .MuiInput-underline:before': {
+      borderBottomColor: 'white',
+    },
+  },
+  floatingLabelFocusStyle: {
+    color: "White",
+  },
+});
+
+
+const TextMaskCustom = (props) => {
+  const { inputRef, ...other } = props;
+
+  return (
+    <MaskedInput
+      {...other}
+      ref={inputRef}
+      mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}
+      placeholderChar={'\u2000'}
+      showMask
+    />
+  );
+}
+
+
+TextMaskCustom.propTypes = {
+  inputRef: PropTypes.func.isRequired,
+};
 
 class Inquiries extends Component {
   constructor(props) {
@@ -13,13 +65,25 @@ class Inquiries extends Component {
       Email: "",
       Phone_Number: "",
       Description: "",
+      showModal: false
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+    this.handleShow = this.handleShow.bind(this);
+  }
+
+  handleClose() {
+    this.setState({ showModal: false });
+  }
+
+
+  handleShow() {
+    this.setState({ showModal: true });
   }
 
   handleSubmit() {
-    const URL = "http://localhost:8080/api/inquiries";
+    const URL = "https://bdcustompa-api.herokuapp.com/api/inquiries";
 
     const date = Date.now();
 
@@ -36,8 +100,6 @@ class Inquiries extends Component {
       Phone_Number: this.state.Phone_Number,
       Description: this.state.Description,
     };
-
-    console.log(newInquiry);
 
     // Authenticate user creds + verify permission
     fetch(URL, {
@@ -59,7 +121,9 @@ class Inquiries extends Component {
       })
       .then((responseData) => {
         // "responseData" is an object
-        console.log(responseData.message);
+        this.handleClose();
+        window.scroll(0, 0);
+        window.location.reload();
       })
       .catch((error) => {
         // Handles an error thrown above, as well as network general errors
@@ -68,6 +132,9 @@ class Inquiries extends Component {
   }
 
   render() {
+
+    const { classes } = this.props;
+
     //styles
     const titleStyle = {
       fontSize: "26px",
@@ -80,9 +147,20 @@ class Inquiries extends Component {
       marginBottom: "10px",
       marginLeft: "auto",
       marginRight: "auto",
-      height: "2px",
+      height: "1px",
       backgroundColor: "#333",
     };
+
+    const hrStyle_2 = {
+      display: "block",
+      marginTop: "5px",
+      marginBottom: "30px",
+      marginLeft: "auto",
+      marginRight: "auto",
+      height: "1px",
+      backgroundColor: "white",
+    };
+
 
     // submit button state
     const isDisabled =
@@ -95,6 +173,7 @@ class Inquiries extends Component {
     return (
       <Container id="inquiries-form">
         <header className="inquiries-title">Inquiries</header>
+        <hr style={hrStyle_2}></hr>
         <Container className="outer-form-container">
           <Container className="form-container">
             <Form>
@@ -103,6 +182,95 @@ class Inquiries extends Component {
                 (We need some basic information from you in order to contact you
                 once you've reached out to us.)
               </p>
+              <form noValidate className={classes.root} autoComplete="off">
+                <TextField id="First-Name" InputLabelProps={{ className: classes.floatingLabelFocusStyle, }} label="First Name"
+                  onChange={(e) => this.setState({ FirstName: e.target.value })}
+                />
+                <TextField id="Last-Name" InputLabelProps={{ className: classes.floatingLabelFocusStyle, }} label="Last Name"
+                  onChange={(e) => this.setState({ LastName: e.target.value })}
+                />
+                <Container style={{ margin: "0px auto" }}></Container>
+                <TextField id="Email-Address" InputLabelProps={{ className: classes.floatingLabelFocusStyle, }} label="Email Address"
+                  onChange={(e) => this.setState({ Email: e.target.value })}
+                />
+                <TextField id="Phone-Number" InputLabelProps={{ className: classes.floatingLabelFocusStyle, }} label="Phone Number"
+                  onChange={(e) => this.setState({ Phone_Number: e.target.value })}
+                />
+              </form>
+              <hr style={hrStyle}></hr>
+              <h4 style={titleStyle}> 2. Project Description </h4>
+              <Form.Group
+                controlId="exampleForm.ControlTextarea1"
+                onChange={(e) => this.setState({ Description: e.target.value })}
+              >
+                <p id="des">
+                  (Please provide some simple details about your current
+                  vehicle, and describe what kind of modifications you would
+                  like to make.)
+                </p>
+                <Form.Control as="textarea" rows={5} />
+              </Form.Group>
+            </Form>
+            <Button
+              size="lg"
+              variant="dark"
+              type="submit"
+              disabled={isDisabled}
+              onClick={this.handleShow}
+            >
+              Submit
+            </Button>
+          </Container>
+        </Container>
+
+        <Modal
+          show={this.state.showModal}
+          onHide={this.handleClose}
+          backdrop="static"
+          keyboard={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title style={{ textDecoration: "underline" }}><b>Please Confirm Inquiry Submission</b></Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p><b>Name: </b> {this.state.FirstName + " "}{this.state.LastName} </p>
+            <p><b>Email: </b> {this.state.Email}</p>
+            <p><b>Phone Number: </b> {this.state.Phone_Number}</p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={this.handleClose}>
+              Close
+          </Button>
+            <Button variant="dark" onClick={this.handleSubmit}> Submit Inquiry</Button>
+          </Modal.Footer>
+        </Modal>
+      </Container>
+    );
+  }
+}
+
+export default withStyles(styles)(withRouter(Inquiries));
+
+/*<Modal.FormText>Name: { this.state.FirstName + " "}{this.state.LastName}</Modal.FormText>
+/* <Modal.FormText>Email: {this.state.Email}</Modal.FormText>
+<Modal.FormText>Phone Number: {this.state.Phone_Number}</Modal.FormText> */
+
+/*
+<Form.Group controlId="formHorizontalEmail">
+<Form.Label>Email:</Form.Label>
+<Col sm={7}>
+  <Form.Control
+    type="email"
+    placeholder="example@gmail.com"
+    onChange={(e) => this.setState({ Email: e.target.value })}
+  />
+  <FormText>So we can reach out to you via email.</FormText>
+</Col>
+</Form.Group>
+*/
+
+
+/*
               <Form.Group as={Row}>
                 <Col>
                   <Form.Label>First Name: </Form.Label>
@@ -125,58 +293,14 @@ class Inquiries extends Component {
                   />
                 </Col>
               </Form.Group>
-              <Form.Group controlId="formHorizontalEmail">
-                <Form.Label>Email:</Form.Label>
-                <Col sm={7}>
-                  <Form.Control
-                    type="email"
-                    placeholder="example@gmail.com"
-                    onChange={(e) => this.setState({ Email: e.target.value })}
-                  />
-                  <FormText>So we can reach out to you via email.</FormText>
-                </Col>
-              </Form.Group>
-              <Form.Group controlId="formHorizontalPhoneNumber">
-                <Form.Label>Phone Number:</Form.Label>
-                <Col sm={7}>
-                  <Form.Control
-                    placeholder="647-733-61..."
-                    type="phone"
-                    onChange={(e) =>
-                      this.setState({ Phone_Number: e.target.value })
-                    }
-                  />
-                  <FormText>If we need to contact you to urgently.</FormText>
-                </Col>
-              </Form.Group>
-              <hr style={hrStyle}></hr>
-              <h4 style={titleStyle}> 2. Project Description </h4>
-              <Form.Group
-                controlId="exampleForm.ControlTextarea1"
-                onChange={(e) => this.setState({ Description: e.target.value })}
-              >
-                <p id="des">
-                  (Please provide some simple details about your current
-                  vehicle, and describe what kind of modifications you would
-                  like to make.)
-                </p>
-                <Form.Control as="textarea" rows={5} />
-              </Form.Group>
-            </Form>
-            <Button
-              size="lg"
-              variant="dark"
-              type="submit"
-              disabled={isDisabled}
-              onClick={this.handleSubmit}
-            >
-              Submit
-            </Button>
-          </Container>
-        </Container>
-      </Container>
-    );
-  }
-}
+*/
 
-export default Inquiries;
+/* <FormControl>
+<InputLabel style={{color: "white", fontSize: "14px", marginBottom:"20px"}} htmlFor="formatted-text-mask-input"></InputLabel>
+<Input
+name="textmask"
+id="formatted-text-mask-input"
+inputComponent={TextMaskCustom}
+style={{marginBottom:"-40px"}}
+/>
+</FormControl> */

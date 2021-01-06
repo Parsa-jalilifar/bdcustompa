@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import AddCurr from "./add_current_project";
 import CarouselMaker from "./carouselMaker";
-import { Container } from "react-bootstrap";
-import * as BiIcons from "react-icons/bi";
+import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import * as AiIcons from "react-icons/ai";
+import Button from "@material-ui/core/Button";
 import "../styles/more_completed_project.css";
 
 class more_completed_projects extends Component {
@@ -27,19 +28,31 @@ class more_completed_projects extends Component {
       backgroundColor: "white",
     };
 
+    const ColorButton = withStyles((theme) => ({
+      root: {
+        borderColor: "white",
+        backgroundColor: "#626262",
+        "&:hover": {
+          backgroundColor: "#333",
+        },
+      },
+    }))(Button);
+
     return (
-      <Container>
-        <a className="icon-link" href="/">
-          <BiIcons.BiArrowBack className="back-icon" />
-          Back To Home Page
-        </a>
-        {/* <AddCurr /> */}
+      <div className="container" style={{ paddingTop: "40px" }}>
+         <Link style={{textDecoration:'none'}} to="/">
+            <ColorButton size="large" variant="contained" color="primary">
+              {" "}
+              <AiIcons.AiOutlineArrowLeft />
+              &nbsp; Back
+            </ColorButton>
+          </Link>
         <h3 style={{ padding: "20px 0px 5px 12px" }}>Current Projects</h3>
         <hr style={hrStyle}></hr>
         <CarouselMaker
           url={`https://bdcustompa-api.herokuapp.com/api/current_projects`}
         />
-      </Container>
+      </div>
     );
   }
 }

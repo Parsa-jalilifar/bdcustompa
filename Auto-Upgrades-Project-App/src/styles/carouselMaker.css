@@ -1,7 +1,10 @@
 .carousel-frame {
   background-color: #d2d2d2;
   display: flex;
-  margin: 20px auto;
+  margin: 30px auto;
+  width: 85%;
+  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19);
 }
 
 .carousel-div {
@@ -82,4 +85,41 @@
 .pagination > li:last-child > a,
 .pagination > li:last-child > span {
   border-radius: unset;
+}
+
+@media screen and (max-width: 995px) {
+  .item-border {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .carousel-frame ul li {
+    font-size: 0.7rem;
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .carousel-frame ul li {
+    font-size: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .carousel-frame ul {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 455px) {
+  .carousel-frame {
+    width: 96%;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .carousel-frame {
+    width: 100%;
+  }
+  .carousel-div {
+    width: 73%;
+  }
 }

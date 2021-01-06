@@ -31,13 +31,23 @@ class AboutUs extends Component {
       marginBottom: "10px",
       marginLeft: "auto",
       marginRight: "auto",
-      height: "2px",
+      height: "1px",
       backgroundColor: "#333",
+    };
+    const hrStyle_2 = {
+      display: "block",
+      marginTop: "5px",
+      marginBottom: "30px",
+      marginLeft: "auto",
+      marginRight: "auto",
+      height: "1px",
+      backgroundColor: "white",
     };
 
     return (
       <Container id="aboutUs-frame">
-        <header className="aboutUs-title">Our Mission</header>
+        <h3 id="aboutUs-title">Our Mission</h3>
+        <hr style={hrStyle_2}></hr>
         <Container className="outer-frame">
           <Container className="frame">
             <Tab.Container
@@ -52,15 +62,13 @@ class AboutUs extends Component {
                       <Nav.Link eventKey="first"> Quality Assurance</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="second">
-                        Automotive Performance
-                      </Nav.Link>
+                      <Nav.Link eventKey="second"> Automotive Performance</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
                       <Nav.Link eventKey="third"> Exterior Cosmetics</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                      <Nav.Link eventKey="fourth">Interior Detailing</Nav.Link>
+                      <Nav.Link eventKey="fourth"> Interior Modifications</Nav.Link>
                     </Nav.Item>
                   </Nav>
                 </Col>
@@ -109,16 +117,16 @@ class AboutUs extends Component {
                         />
                         <ul className="about-list-img">
                           <li>
-                            <p> Engine Chip Tuning System</p>
+                            <p> Engine Performance Upgrades (Turbo, Supercharger, Computer Chip,...)</p>
                           </li>
                           <li>
-                            <p> Modified High Performance Braking System</p>
+                            <p> Drivetrain Modifications and Upgrades </p>
                           </li>
                           <li>
-                            <p> Performance Tires Installation</p>
+                            <p> Suspension Upgrades and Brakes Upgrades</p>
                           </li>
                           <li>
-                            <p> Race Exhaust System Enhancement</p>
+                            <p> Enhanced Performance Exhaust Upgrades</p>
                           </li>
                         </ul>
                       </div>
@@ -137,23 +145,29 @@ class AboutUs extends Component {
                         />
                         <ul className="about-list-img">
                           <li>
-                            <p> Professional Vehicle Lowering Kits</p>
+                            <p> Comprehensive Body Kit Modifications (Spoilers, Wide Body, Flares,...)</p>
                           </li>
                           <li>
-                            <p> Custom Exhaust Manifolds</p>
+                            <p> Custom Paint Jobs</p>
                           </li>
                           <li>
-                            <p> Comprehensive Body kit Modifications</p>
+                            <p> Custom 3D PPF(Paint Protection Film)</p>
                           </li>
                           <li>
-                            <p> Customized Paint Jobs</p>
+                            <p> Ceramic Coating/Premium Paint Protection</p>
+                          </li>
+                          <li>
+                            <p> Custom 3D Wrap in Any Color</p>
+                          </li>
+                          <li>
+                            <p> Custom Powder Coating Rims and Brake Calipers</p>
                           </li>
                         </ul>
                       </div>
                     </Tab.Pane>
 
                     <Tab.Pane eventKey="fourth">
-                      <h4 style={titleStyle}>Interior Detailing</h4>
+                      <h4 style={titleStyle}>Interior Modifications</h4>
                       <hr style={hrStyle}></hr>
                       <div className="about-img-container">
                         <img
@@ -165,16 +179,16 @@ class AboutUs extends Component {
                         />
                         <ul className="about-list-img">
                           <li>
-                            <p> Interior Custom Color Wrappings</p>
+                            <p> Complete Custom Interior (Change on Design, Leather, Stiching,...)</p>
                           </li>
                           <li>
-                            <p> LED Floor, Roof and Door Installations</p>
+                            <p> LED Ambient Lighting</p>
                           </li>
                           <li>
-                            <p> State Of The Art Audio Systems</p>
+                            <p> Custom Sound System, Navigation, Dash Cam, Anti-Theft System with GPS Tracking, and Front and Rear Cameras.</p>
                           </li>
                           <li>
-                            <p>Pedals, Dashboard and Gearstick Customization</p>
+                            <p> Custom Dash (Gauge and Indicators)</p>
                           </li>
                         </ul>
                       </div>

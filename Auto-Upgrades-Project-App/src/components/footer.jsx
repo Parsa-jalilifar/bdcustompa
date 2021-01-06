@@ -11,16 +11,16 @@ class Footer extends Component {
     return (
       <div className="footer">
         <div className="icon-list">
-          <a href="https://facebook.com/">
+          <a href="https://www.instagram.com/bd_custom_pa/">
             <AiIcons.AiFillYoutube className="icon" />
           </a>
-          <a href="https://facebook.com/">
+          <a href="https://www.instagram.com/bd_custom_pa/">
             <AiIcons.AiFillFacebook className="icon" />
           </a>
-          <a href="https://facebook.com/">
+          <a href="https://www.instagram.com/bd_custom_pa/">
             <AiIcons.AiFillInstagram className="icon" />
           </a>
-          <a href="https://facebook.com/">
+          <a href="https://www.instagram.com/bd_custom_pa/">
             <AiIcons.AiFillTwitterCircle className="icon" />
           </a>
         </div>

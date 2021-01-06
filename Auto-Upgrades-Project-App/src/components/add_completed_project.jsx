@@ -1,13 +1,8 @@
-import {
-  Form,
-  FormText,
-  Col,
-  Button,
-  Container,
-  FormGroup,
-} from "react-bootstrap";
+import {Form, FormText, Col, Button, Container, FormGroup} from "react-bootstrap";
 import React, { Component } from "react";
 import "../styles/add_completed_project.css";
+import * as BiIcons from "react-icons/bi";
+import {withRouter} from 'react-router-dom';
 
 class Add_Completed_Project extends Component {
   constructor(props) {
@@ -27,10 +22,15 @@ class Add_Completed_Project extends Component {
 
     this.onButtonChange = this.onButtonChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleBack = this.handleBack.bind(this);
+  }
+
+  handleBack() {
+    this.props.history.push("/");
   }
 
   handleSubmit() {
-    const URL = "http://localhost:8080/api/completed_projects";
+    const URL = "https://bdcustompa-api.herokuapp.com/api/completed_projects";
 
     var formData = new FormData();
     formData.append("Make", this.state.Make);
@@ -48,6 +48,9 @@ class Add_Completed_Project extends Component {
     fetch(URL, {
       method: "POST",
       body: formData,
+      headers: {
+        'Authorization': "Bearer " + localStorage.getItem("Token")
+      }
     })
       .then((response) => {
         if (response.ok) {
@@ -64,6 +67,7 @@ class Add_Completed_Project extends Component {
       .then((responseData) => {
         // "responseData" is an object
         console.log(responseData.message);
+        this.props.history.push(`/admin_completed_projects`);
       })
       .catch((error) => {
         // Handles an error thrown above, as well as network general errors
@@ -118,7 +122,10 @@ class Add_Completed_Project extends Component {
       this.state.Images.length === 0;
 
     return (
-      <Container style={{ paddingTop: "20px" }}>
+      <Container id="Add-Completed-Frame" style={{ paddingTop: "20px" }}>
+        <a className="icon-link" href="/">
+          <BiIcons.BiArrowBack className="back-icon" />
+        </a>
         <header className="title">Add Completed Project</header>
         <Container className="outer-form-container">
           <Container className="form-container">
@@ -189,7 +196,7 @@ class Add_Completed_Project extends Component {
                 onChange={(e) => this.setState({ Description: e.target.value })}
               >
                 <FormText>
-                  A descriptive explanation of the modifications made
+                  A descriptive explanation of the modifications made.
                 </FormText>
                 <Form.Control as="textarea" rows={5} />
               </Form.Group>
@@ -214,18 +221,6 @@ class Add_Completed_Project extends Component {
             </Form>
             <hr style={hrStyle}></hr>
             <Button
-              style={{
-                borderRadius: "24px",
-                marginTop: "25px",
-                marginRight: "40px",
-              }}
-              size="lg"
-              variant="dark"
-              onClick={this.handleSubmit}
-            >
-              Back
-            </Button>
-            <Button
               style={{ borderRadius: "24px", marginTop: "25px" }}
               size="lg"
               variant="dark"
@@ -242,4 +237,4 @@ class Add_Completed_Project extends Component {
   }
 }
 
-export default Add_Completed_Project;
+export default withRouter(Add_Completed_Project);

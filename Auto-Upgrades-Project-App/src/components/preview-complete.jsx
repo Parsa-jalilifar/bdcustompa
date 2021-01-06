@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-
 import { Link } from "react-router-dom";
-
 import { Carousel } from "react-bootstrap";
-import "../styles/preview-complete.css";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import * as AiIcons from "react-icons/ai";
+import "../styles/preview.css";
 
 class previewComplete extends Component {
   constructor(props) {
@@ -54,23 +55,34 @@ class previewComplete extends Component {
   render() {
     const hrStyle = {
       display: "block",
-      marginTop: "5px",
+      marginTop: "10px",
       marginBottom: "40px",
       marginLeft: "auto",
       marginRight: "auto",
-      height: "2px",
+      height: "1px",
       backgroundColor: "white",
     };
 
+    const ColorButton = withStyles((theme) => ({
+      root: {
+        borderColor: "white",
+        backgroundColor: "#626262",
+        "&:hover": {
+          backgroundColor: "#333",
+        },
+      },
+    }))(Button);
+
     return (
       <div className="container" id="com-frame" style={{ paddingTop: "40px" }}>
-        <h3 style={{ display: "inline-block" }}>Completed Projects</h3>
-        <h4 style={{ float: "right", marginRight: "15px" }}>
-          <Link
-            to="/More_completed_project"
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            + More
+        <h3 className="preview_title">Completed Projects</h3>
+        <h4 className="preview_more">
+          <Link style={{textDecoration:'none'}} to="/More_completed_project">
+            <ColorButton size="large" variant="contained" color="primary">
+              {" "}
+              <AiIcons.AiOutlinePlus />
+              &nbsp; More
+            </ColorButton>
           </Link>
         </h4>
         <hr style={hrStyle}></hr>
@@ -98,22 +110,22 @@ function CarouselItems(props) {
           <span style={{ fontWeight: "bold" }}>Make: </span>
           <span style={{ fontWeight: "normal" }}>{c.Make}</span>
         </li>
-        <hr />
+        <hr className="item-border" />
         <li>
           <span style={{ fontWeight: "bold" }}>Model: </span>
           <span style={{ fontWeight: "normal" }}> {c.Model}</span>
         </li>
-        <hr />
+        <hr className="item-border" />
         <li>
           <span style={{ fontWeight: "bold" }}>Year: </span>
           <span style={{ fontWeight: "normal" }}> {c.Year}</span>
         </li>
-        <hr />
+        <hr className="item-border" />
         <li>
           <span style={{ fontWeight: "bold" }}>Body Style: </span>
           <span style={{ fontWeight: "normal" }}> {c.Body_Style}</span>
         </li>
-        <hr />
+        <hr className="item-border" />
         <li>
           <span style={{ fontWeight: "bold" }}>Engine Transmission: </span>
           <br />

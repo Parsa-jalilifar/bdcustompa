@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import { Carousel } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import "../styles/carouselMaker.css";
 
 class carouselMaker extends Component {
@@ -108,34 +107,29 @@ function CarouselItems(props) {
           <span style={{ fontWeight: "bold" }}>Make: </span>
           <span style={{ fontWeight: "normal" }}>{c.Make}</span>
         </li>
-        <hr />
+        <hr className="item-border"/>
         <li>
           <span style={{ fontWeight: "bold" }}>Model: </span>
           <span style={{ fontWeight: "normal" }}> {c.Model}</span>
         </li>
-        <hr />
+        <hr className="item-border"/>
         <li>
           <span style={{ fontWeight: "bold" }}>Year: </span>
           <span style={{ fontWeight: "normal" }}> {c.Year}</span>
         </li>
-        <hr />
+        <hr className="item-border"/>
         <li>
           <span style={{ fontWeight: "bold" }}>Body Style: </span>
           <span style={{ fontWeight: "normal" }}> {c.Body_Style}</span>
         </li>
-        <hr />
+        <hr className="item-border"/>
         <li>
           <span style={{ fontWeight: "bold" }}>Engine Transmission: </span>
           <br />
           <span style={{ fontWeight: "normal" }}> {c.Engine_Transmission}</span>
         </li>
 
-        {/* <li className="carousel-buttons">
-          <hr />
-          <Link className="btn btn-warning" to={`/project/edit/${c._id}`}>
-            Edit
-          </Link>
-          &nbsp;
+        {/* 
           <Link className="btn btn-danger" to={`/project/delete/${c._id}`}>
             Delete
           </Link>
