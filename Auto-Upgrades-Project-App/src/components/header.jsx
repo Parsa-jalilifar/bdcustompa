@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import "../styles/header.css";
 import LOGO from "../logo.jpg";
+import LOGO_MOBILE from "../logo_mobile.jpg";
 import SideBar from "./sideBar";
 import { Link } from "react-scroll";
 
 class header extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      headerLogo: window.innerWidth > 500 ? LOGO : LOGO_MOBILE
+    };
   }
   render() {
     return (
       <div className="main">
-        <img src={LOGO} id="logo" alt="logo" />
+        <img src={this.state.headerLogo} id="logo" alt="logo" />
         <div className="header-container">
           <div className="nav-container">
             <ul>

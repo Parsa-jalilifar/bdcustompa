@@ -14,7 +14,7 @@ class Footer extends Component {
           <a href="https://www.instagram.com/bd_custom_pa/">
             <AiIcons.AiFillYoutube className="icon" />
           </a>
-          <a href="https://www.instagram.com/bd_custom_pa/">
+          <a href="https://www.facebook.com/pages/category/Product-Service/BD-Custom-Performance-101954038448058/">
             <AiIcons.AiFillFacebook className="icon" />
           </a>
           <a href="https://www.instagram.com/bd_custom_pa/">
