@@ -63,10 +63,24 @@ class previewCurrent extends Component {
     const ColorButton = withStyles((theme) => ({
       root: {
         borderColor: "white",
-        backgroundColor: "#626262",
+        backgroundColor: "#333",
         "&:hover": {
-          backgroundColor: "#333",
+          backgroundColor: "black",
         },
+      },
+    }))(Button);
+
+    const ColorButtonSm = withStyles((theme) => ({
+      root: {
+        borderColor: "white",
+        backgroundColor: "#333",
+        "&:hover": {
+          backgroundColor: "black",
+        },
+        paddingLeft: "0px",
+        paddingRight: "0px",
+        width: "100px",
+        left: "16px"
       },
     }))(Button);
 
@@ -75,10 +89,14 @@ class previewCurrent extends Component {
         <h3 className="preview_title">Current Projects</h3>
         <h4 className="preview_more">
           <Link style={{textDecoration:'none'}} to="/More_current_project">
-            <ColorButton size="large" variant="contained" color="primary">
-              <AiIcons.AiOutlinePlus />
-              &nbsp; More
-            </ColorButton>
+          {
+              (window.innerWidth < 415) ? 
+                <ColorButtonSm size="large" variant="contained" color="primary">
+                {" "} <AiIcons.AiOutlinePlus /> &nbsp; More </ColorButtonSm> 
+              :
+                <ColorButton size="large" variant="contained" color="primary">
+                {" "} <AiIcons.AiOutlinePlus /> &nbsp; More</ColorButton>
+          }
           </Link>
         </h4>
         <hr style={hrStyle}></hr>

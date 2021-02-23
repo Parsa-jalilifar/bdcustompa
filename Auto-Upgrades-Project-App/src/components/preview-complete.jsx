@@ -66,10 +66,24 @@ class previewComplete extends Component {
     const ColorButton = withStyles((theme) => ({
       root: {
         borderColor: "white",
-        backgroundColor: "#626262",
+        backgroundColor: "#333",
         "&:hover": {
-          backgroundColor: "#333",
+          backgroundColor: "black",
         },
+      },
+    }))(Button);
+
+    const ColorButtonSm = withStyles((theme) => ({
+      root: {
+        borderColor: "white",
+        backgroundColor: "#333",
+        "&:hover": {
+          backgroundColor: "black",
+        },
+        paddingLeft: "0px",
+        paddingRight: "0px",
+        width: "100px",
+        left: "16px"
       },
     }))(Button);
 
@@ -77,12 +91,15 @@ class previewComplete extends Component {
       <div className="container" id="com-frame" style={{ paddingTop: "40px" }}>
         <h3 className="preview_title">Completed Projects</h3>
         <h4 className="preview_more">
-          <Link style={{textDecoration:'none'}} to="/More_completed_project">
-            <ColorButton size="large" variant="contained" color="primary">
-              {" "}
-              <AiIcons.AiOutlinePlus />
-              &nbsp; More
-            </ColorButton>
+          <Link style={{ textDecoration: 'none' }} to="/More_completed_project">
+            {
+              (window.innerWidth < 415) ? 
+                <ColorButtonSm size="large" variant="contained" color="primary">
+                {" "} <AiIcons.AiOutlinePlus /> &nbsp; More </ColorButtonSm> 
+              :
+                <ColorButton size="large" variant="contained" color="primary">
+                {" "} <AiIcons.AiOutlinePlus /> &nbsp; More</ColorButton>
+            }
           </Link>
         </h4>
         <hr style={hrStyle}></hr>

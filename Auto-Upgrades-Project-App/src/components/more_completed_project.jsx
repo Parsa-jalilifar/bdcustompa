@@ -30,9 +30,9 @@ class more_completed_projects extends Component {
     const ColorButton = withStyles((theme) => ({
       root: {
         borderColor: "white",
-        backgroundColor: "#626262",
+        backgroundColor: "#333",
         "&:hover": {
-          backgroundColor: "#333",
+          backgroundColor: "black",
         },
       },
     }))(Button);

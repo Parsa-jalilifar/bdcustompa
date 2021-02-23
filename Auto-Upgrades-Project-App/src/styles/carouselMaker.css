@@ -1,5 +1,5 @@
 .carousel-frame {
-  background-color: #d2d2d2;
+  background-color: #333;
   display: flex;
   margin: 30px auto;
   width: 85%;
@@ -16,10 +16,6 @@
   width: 30%;
   margin: 20px;
   overflow: hidden;
-}
-
-.carousel-frame ul li {
-  color: black;
 }
 
 #image-caption {
@@ -112,6 +108,9 @@
 @media screen and (max-width: 455px) {
   .carousel-frame {
     width: 96%;
+  }
+  #image-item {
+    height: 185px;
   }
 }
 

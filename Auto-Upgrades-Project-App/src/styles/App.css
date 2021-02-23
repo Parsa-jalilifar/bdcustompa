@@ -4,7 +4,7 @@
 }
 
 .App-Background {
-  background: black;
+  background: #565656;
   color: white;
   /* display: flex; */
   min-height: 100vh;

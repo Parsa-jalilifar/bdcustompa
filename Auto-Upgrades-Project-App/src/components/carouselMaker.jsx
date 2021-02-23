@@ -105,28 +105,28 @@ function CarouselItems(props) {
       <ul>
         <li id="first-label">
           <span style={{ fontWeight: "bold" }}>Make: </span>
-          <span style={{ fontWeight: "normal" }}>{c.Make}</span>
+          <span style={{fontWeight: "normal"}}>{c.Make}</span>
         </li>
         <hr className="item-border"/>
         <li>
           <span style={{ fontWeight: "bold" }}>Model: </span>
-          <span style={{ fontWeight: "normal" }}> {c.Model}</span>
+          <span style={{ fontWeight: "normal"}}> {c.Model}</span>
         </li>
         <hr className="item-border"/>
         <li>
           <span style={{ fontWeight: "bold" }}>Year: </span>
-          <span style={{ fontWeight: "normal" }}> {c.Year}</span>
+          <span style={{ fontWeight: "normal"}}> {c.Year}</span>
         </li>
         <hr className="item-border"/>
         <li>
           <span style={{ fontWeight: "bold" }}>Body Style: </span>
-          <span style={{ fontWeight: "normal" }}> {c.Body_Style}</span>
+          <span style={{ fontWeight: "normal"}}> {c.Body_Style}</span>
         </li>
         <hr className="item-border"/>
         <li>
-          <span style={{ fontWeight: "bold" }}>Engine Transmission: </span>
+          <span style={{ fontWeight: "bold"}}>Engine Transmission: </span>
           <br />
-          <span style={{ fontWeight: "normal" }}> {c.Engine_Transmission}</span>
+          <span style={{ fontWeight: "normal"}}> {c.Engine_Transmission}</span>
         </li>
 
         {/* 
