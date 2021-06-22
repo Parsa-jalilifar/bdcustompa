@@ -1,0 +1,15 @@
+.footer-container {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+
+  p {
+    padding: 1.25rem 0;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+}

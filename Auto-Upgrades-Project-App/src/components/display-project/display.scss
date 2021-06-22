@@ -1,0 +1,131 @@
+@import "../../variables.scss";
+
+.display-container {
+  position: fixed;
+  overflow: auto;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 20;
+  animation: fade-in 280ms ease-in-out;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  // hiding scrollbar
+  &::-webkit-scrollbar {
+    // chrome, opera
+    display: none;
+  }
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  .screen {
+    position: relative;
+    max-width: 1000px;
+    margin: auto;
+
+    animation: slide-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 400ms both;
+
+    @keyframes slide-bottom {
+      0% {
+        -webkit-transform: translateY(-1200px);
+        transform: translateY(-1200px);
+      }
+      100% {
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+      }
+    }
+
+    .project-info {
+      position: relative;
+      background-color: $light;
+      padding: 2em;
+      letter-spacing: 1px;
+      border-radius: 3px;
+
+      svg {
+        position: absolute;
+        top: 1rem;
+        right: 1.75rem;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      h4 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .specifications {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: $secondary-light;
+        border-radius: 10px;
+        margin-bottom: 2em;
+        padding: 1rem;
+
+        .block {
+          font-size: 0.875rem;
+          font-weight: 400;
+          line-height: 2rem;
+
+          span:first-child {
+            font-weight: bold;
+          }
+        }
+      }
+
+      .description {
+        background-color: $secondary-light;
+        border-radius: 10px;
+        padding: 1rem;
+
+        p {
+          font-size: 0.875rem;
+          font-weight: 400;
+          line-height: 1.5rem;
+        }
+      }
+    }
+    .carousel-root {
+      margin-top: 1em;
+
+      .slider-wrapper {
+        background-color: black;
+
+        .slide .carousel-img img {
+          object-fit: contain;
+          max-height: 500px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .display-container
+    .screen
+    .carousel-root
+    .slider-wrapper
+    .slide
+    .carousel-img
+    img {
+    max-height: 60vw;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .display-container .screen .project-info .specifications {
+    grid-template-columns: 1fr;
+  }
+}
