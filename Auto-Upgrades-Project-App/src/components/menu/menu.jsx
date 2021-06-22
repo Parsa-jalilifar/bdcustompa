@@ -12,11 +12,11 @@ class menu extends Component {
   render() {
     return (
       <div className="menu-container">
-        <img
+        {/* <img
           src={require("../../images/logo.png").default}
           alt="Big Logo"
           className="nav-logo"
-        />
+        /> */}
         <div className="menu-box">
           <LinkS to="landing-container" spy={true} smooth={true} offset={-60}>
             Home

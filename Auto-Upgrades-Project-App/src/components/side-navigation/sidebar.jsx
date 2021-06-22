@@ -15,7 +15,6 @@ class sidebar extends Component {
 
         <div class="sidebar-content">
           <div className="options">
-            {" "}
             <LinkS to="landing-container" spy={true} smooth={true} offset={-60}>
               Home
             </LinkS>
