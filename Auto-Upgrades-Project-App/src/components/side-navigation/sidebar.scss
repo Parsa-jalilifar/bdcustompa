@@ -1,13 +1,13 @@
-@import "../../variables.scss";
+@import "utils/variables.scss";
 
 .sidebar-container {
   display: none;
   position: fixed;
-  margin-top: 3rem;
+  // margin-top: 1rem;
   // margin-right: 1rem;
 
-  background-color: black;
-  height: 60px;
+  // background-color: black;
+  height: 150px;
   width: 100%;
   z-index: 99;
 

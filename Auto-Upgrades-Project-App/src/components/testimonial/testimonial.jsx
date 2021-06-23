@@ -30,7 +30,7 @@ class testimonial extends Component {
               <div className="img-pos">
                 <div className="picture">
                   <img
-                    src={require("../../images/profile.png").default}
+                    src={require("images/profile.png").default}
                     alt="profile-pic"
                   />
                 </div>
@@ -58,7 +58,7 @@ class testimonial extends Component {
               <div className="img-pos">
                 <div className="picture">
                   <img
-                    src={require("../../images/w1.png").default}
+                    src={require("images/w1.png").default}
                     alt="profile-pic"
                   />
                 </div>
@@ -86,7 +86,7 @@ class testimonial extends Component {
               <div className="img-pos">
                 <div className="picture">
                   <img
-                    src={require("../../images/w2.png").default}
+                    src={require("images/w2.png").default}
                     alt="profile-pic"
                   />
                 </div>

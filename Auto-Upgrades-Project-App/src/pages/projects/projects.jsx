@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import * as IoIcons from "react-icons/io5";
 import ReactPaginate from "react-paginate";
-import Display from "../../components/display-project/display";
-import Footer from '../../components/footer/footer';
+import Display from "components/display-project/display";
+import Footer from "components/footer/footer";
 
 import "./projects.scss";
 
@@ -95,7 +95,7 @@ class projects extends Component {
       <div className="projects-container">
         <div className="title">
           <Link to="/">
-            <img src={require("../../images/logo.png").default} alt="logo" />
+            <img src={require("images/logo.png").default} alt="logo" />
           </Link>
           <Link to="/" className="btn-back">
             <IoIcons.IoArrowBack className="icon" />
@@ -114,38 +114,41 @@ class projects extends Component {
             <p>Loading...</p>
           </div>
         ) : (
-          <div className="card-container">
-            {this.state.completed_projects.map((project) => {
-              return (
-                <div
-                  className="card"
-                  onClick={this.openDisplay.bind(this, project)}
-                >
-                  <img
-                    alt={`${project.Make}-car`}
-                    src={`data:image/jpeg;base64,${project.Images[0]}`}
-                  />
-                  <p>
-                    {project.Make + " " + project.Model + " " + project.Year}
-                  </p>
-                </div>
-              );
-            })}
+          <div className="outer-card-container">
+            <div className="card-container">
+              {this.state.completed_projects.map((project) => {
+                return (
+                  <div
+                    className="card"
+                    onClick={this.openDisplay.bind(this, project)}
+                  >
+                    <img
+                      alt={`${project.Make}-car`}
+                      src={`data:image/jpeg;base64,${project.Images[0]}`}
+                    />
+                    <p>
+                      {project.Make + " " + project.Model + " " + project.Year}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+            <ReactPaginate
+              previousLabel={"previous"}
+              nextLabel={"next"}
+              breakLabel={"..."}
+              breakClassName={"break-me"}
+              pageCount={this.state.pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={this.handlePageClick}
+              containerClassName={"pagination"}
+              activeClassName={"active"}
+            />
           </div>
         )}
-        <ReactPaginate
-          previousLabel={"previous"}
-          nextLabel={"next"}
-          breakLabel={"..."}
-          breakClassName={"break-me"}
-          pageCount={this.state.pageCount}
-          marginPagesDisplayed={2}
-          pageRangeDisplayed={5}
-          onPageChange={this.handlePageClick}
-          containerClassName={"pagination"}
-          activeClassName={"active"}
-        />
-        <Footer/>
+
+        <Footer />
       </div>
     );
   }

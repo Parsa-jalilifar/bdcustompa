@@ -1,4 +1,4 @@
-@import "../../variables.scss";
+@import "utils/variables.scss";
 
 #location-container {
   display: flex;
@@ -118,10 +118,14 @@
       }
     }
   }
-
-  @media screen and (max-width: 1530px) {
+}
+@media screen and (max-width: 1530px) {
+  #location-container {
     #gps {
       width: 100%;
+    }
+    .info-box .social-box {
+      margin-bottom: 8rem;
     }
   }
 }

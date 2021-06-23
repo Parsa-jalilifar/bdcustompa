@@ -15,7 +15,7 @@ class landing extends Component {
         <div className="content-frame">
           <div className="content-box">
             <img
-              src={require("../../images/logo.png").default}
+              src={require("images/logo.png").default}
               alt="Big Logo"
             />
             <p>We make your car far more better than now.</p>

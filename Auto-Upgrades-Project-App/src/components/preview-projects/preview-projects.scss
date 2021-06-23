@@ -1,8 +1,9 @@
-@import "../../variables.scss";
+@import "utils/variables.scss";
 
 #preview-projects-container {
   width: 100%;
   padding-top: 120px;
+  padding-bottom: 120px;
   overflow: hidden;
   background-color: $secondary-color;
 

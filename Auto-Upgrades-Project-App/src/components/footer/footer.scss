@@ -1,5 +1,5 @@
 .footer-container {
-  position: relative;
+  position: absolute;
   bottom: 0;
   width: 100%;
   display: flex;
@@ -8,6 +8,7 @@
   background-color: black;
 
   p {
+    margin: 0 1rem;
     padding: 1.25rem 0;
     letter-spacing: 1px;
     text-align: center;

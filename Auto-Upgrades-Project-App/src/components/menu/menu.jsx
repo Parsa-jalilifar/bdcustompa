@@ -9,14 +9,34 @@ class menu extends Component {
     super(props);
     this.state = {};
   }
+
+  componentDidMount() {
+    const logo = document.querySelector(".nav-logo");
+    const landing = document.querySelector("#landing-container");
+
+    const options = {};
+
+    const menuObserver = new IntersectionObserver((entries, menuObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          logo.classList.add("show");
+        } else {
+          logo.classList.remove("show");
+        }
+      });
+    }, options);
+
+    menuObserver.observe(landing);
+  }
+
   render() {
     return (
       <div className="menu-container">
-        {/* <img
-          src={require("../../images/logo.png").default}
+        <img
+          src={require("images/logo.png").default}
           alt="Big Logo"
           className="nav-logo"
-        /> */}
+        />
         <div className="menu-box">
           <LinkS to="landing-container" spy={true} smooth={true} offset={-60}>
             Home
@@ -30,7 +50,7 @@ class menu extends Component {
           <LinkS to="testimonial-container" spy={true} smooth={true}>
             Testimonial
           </LinkS>
-          <LinkS to="contact-container" spy={true} smooth={true} offset={10}>
+          <LinkS to="contact-container" spy={true} smooth={true} offset={1}>
             Contact
           </LinkS>
         </div>

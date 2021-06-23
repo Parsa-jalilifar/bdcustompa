@@ -1,7 +1,7 @@
 import React from "react";
-import Home from "./pages/home/home";
-import projects from "./pages/projects/projects";
-import NotFound from "./pages/not-found/not-found";
+import Home from "pages/home/home";
+import projects from "pages/projects/projects";
+import NotFound from "pages/not-found/not-found";
 
 import "./App.scss";
 

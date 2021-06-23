@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import * as AiIcons from "react-icons/ai";
 import * as FaIcons from "react-icons/fa";
 import * as BiIcons from "react-icons/bi";
-
 import "./location.scss";
 
 class location extends Component {

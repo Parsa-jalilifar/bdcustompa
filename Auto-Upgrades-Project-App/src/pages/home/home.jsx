@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import Landing from "../../components/landing/landing";
-import Services from "../../components/services/services";
-import PreviewProjects from "../../components/preview-projects/preview-projects";
-import Testimonial from "../../components/testimonial/testimonial";
-import Contact from "../../components/contact/contact";
-import Location from "../../components/location/location";
-import Footer from "../../components/footer/footer";
+import Landing from "components/landing/landing";
+import Services from "components/services/services";
+import PreviewProjects from "components/preview-projects/preview-projects";
+import Testimonial from "components/testimonial/testimonial";
+import Contact from "components/contact/contact";
+import Location from "components/location/location";
+import Footer from "components/footer/footer";
+import "./home.scss";
 
 class home extends Component {
   constructor(props) {
