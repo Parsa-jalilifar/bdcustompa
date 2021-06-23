@@ -22,7 +22,7 @@ class sidebar extends Component {
               to="services-container"
               spy={true}
               smooth={true}
-              offset={20}
+              offset={21}
             >
               Services
             </LinkS>
@@ -30,7 +30,7 @@ class sidebar extends Component {
               to="preview-projects-container"
               spy={true}
               smooth={true}
-              offset={20}
+              offset={22}
             >
               Projects
             </LinkS>
@@ -38,11 +38,11 @@ class sidebar extends Component {
               to="testimonial-container"
               spy={true}
               smooth={true}
-              offset={20}
+              offset={22}
             >
               Testimonial
             </LinkS>
-            <LinkS to="contact-container" spy={true} smooth={true} offset={20}>
+            <LinkS to="contact-container" spy={true} smooth={true} offset={22}>
               Contact
             </LinkS>
           </div>

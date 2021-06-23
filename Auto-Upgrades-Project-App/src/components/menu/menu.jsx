@@ -41,16 +41,21 @@ class menu extends Component {
           <LinkS to="landing-container" spy={true} smooth={true} offset={-60}>
             Home
           </LinkS>
-          <LinkS to="services-container" spy={true} smooth={true}>
+          <LinkS to="services-container" spy={true} smooth={true} offset={5}>
             Services
           </LinkS>
-          <LinkS to="preview-projects-container" spy={true} smooth={true}>
+          <LinkS to="preview-projects-container" spy={true} smooth={true} offset={7}>
             Projects
           </LinkS>
-          <LinkS to="testimonial-container" spy={true} smooth={true}>
+          <LinkS
+            to="testimonial-container"
+            spy={true}
+            smooth={true}
+            offset={7}
+          >
             Testimonial
           </LinkS>
-          <LinkS to="contact-container" spy={true} smooth={true} offset={1}>
+          <LinkS to="contact-container" spy={true} smooth={true} offset={7}>
             Contact
           </LinkS>
         </div>
